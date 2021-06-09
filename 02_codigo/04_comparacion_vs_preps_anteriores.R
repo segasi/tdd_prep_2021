@@ -56,7 +56,7 @@ datos %>%
   annotate(geom = "text", x = as_datetime("2021-06-07 20:35:00"), y = 0.97, label = "2012", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
   annotate(geom = "text", x = as_datetime("2021-06-07 20:35:00"), y = 0.91, label = "2015", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
   annotate(geom = "text", x = as_datetime("2021-06-07 20:35:00"), y = 0.75, label = "2018", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
-  annotate(geom = "text", x = as_datetime("2021-06-07 04:30:00"), y = 0.8, label = "2021", fontface = "bold", color = "#f07167", hjust = 0.5, size = 8, family = "Trebuchet MS Bold") +
+  annotate(geom = "text", x = as_datetime("2021-06-07 04:30:00"), y = 0.81, label = "2021", fontface = "bold", color = "#f07167", hjust = 0.5, size = 8, family = "Trebuchet MS Bold") +
   scale_color_manual(values = c("grey10", "grey30", "grey50", "grey70", "grey90", "#f07167"),
     guide = guide_legend(title.position = "top", keyheight = 0.4, default.unit = "inch")) +
   scale_x_datetime(breaks = date_breaks("1 hour"), 
@@ -80,4 +80,4 @@ datos %>%
         legend.direction = "horizontal",
         legend.title.align = 0,
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  ggsave("03_graficas/comparacion/XX_comparacion_evolucion_porcentaje_acumulado_actas_capturadas_prep_dip_fed_2021_vs_previos.png", width = 16, height = 10, dpi = 200)
+  ggsave("03_graficas/comparacion/comparacion_evolucion_porcentaje_acumulado_actas_capturadas_prep_dip_fed_2021_vs_previos.png", width = 16, height = 10, dpi = 200)
