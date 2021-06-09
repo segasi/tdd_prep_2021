@@ -1,0 +1,188 @@
+
+					Programa de Resultados Electorales Preliminares 2015
+					____________________________________________________
+
+
+A. El Programa de Resultados Preliminares permite la descarga de la base de datos a través de un archivo tar.gz que contienen archivos CSV.
+
+B. El archivo de texto plano contiene todas las actas de base de datos y se nombran como diputados.csv
+
+C. La información en el archivo de texto plano se divide en dos secciones:
+
+   a. Primera sección, encabezado: 
+
+     i.	Se presenta la hora y la fecha de la generación de reportes, esta corresponde al que aparece en los reportes HTML, ejemplo:
+        20:00 horas (UTC-5)
+        Domingo 7 de junio de 2015
+
+     ii.Se presentan los nombres de los datos del acta que se están incluyendo, separados por pipes |, ejemplo:
+
+			ACTAS_CAPTURADAS|ACTAS_POR_CAPTURAR|PORCENTAJE_ACTAS_CAPTURADAS|ACTAS_CONTABILIZADAS|ACTAS_NO_CONTABILIZADAS|PARTICIPACION_CIUDADANA
+
+        La descripción de cada campo se muestra a continuación:
+
+    	    1. ACTAS_CAPTURADAS - Número de actas recibidas, capturadas y publicadas al momento de la generación del archivo. 
+
+			2. ACTAS_POR_CAPTURAR - Total de actas esperadas, menos las actas capturadas.
+
+			3. PORCENTAJE_ACTAS_CAPTURADAS - Porcentaje de actas capturadas al momento de la generación del archivo.
+
+			4. ACTAS_CONTABILIZADAS - Total de actas contabilizadas al momento de la generación del archivo.
+
+			5. ACTAS_NO_CONTABILIZADAS - Total de actas NO contabilizadas al momento de la generación del archivo.
+
+			6. PARTICIPACION_CIUDADANA - Porcentaje de la participación ciudadana.
+
+
+   b.  Segunda sección, datos del acta. Corresponde a los datos del acta extraídos de la base de datos, cada línea corresponde a una acta, 
+	están separados por pipes |. Los datos son los siguientes:
+
+      ID_ESTADO|ESTADO|ID_DISTRITO|DISTRITO|SECCION|ID_CASILLA|TIPO_CASILLA|EXT_CONTIGUA|UBICACION_CASILLA|TIPO_ACTA|NUM_BOLETAS_SOBRANTES|TOTAL_CIUDADANOS_VOTARON|NUM_BOLETAS_EXTRAIDAS|PAN|PRI|PRD|PVEM|PT|MOVIMIENTO_CIUDADANO|NUEVA_ALIANZA|MORENA|PH|ES|C_PRI_PVEM|C_PRD_PT|CAN_IND_1|CAND_IND_2|CAND_IND_3|CAND_IND_4|CAND_IND_5|NO_REGISTRADOS|NULOS|TOTAL_VOTOS|LISTA_NOMINAL|OBSERVACIONES|CONTABILIZADA|CRYT|HORA_ACOPIO|HORA_CAPTURA|HORA_REGISTRO
+
+
+	1. ID_ESTADO - Número de la Entidad Federativa.
+	
+	2. ESTADO - Nombre de la Entidad Federativa.
+
+	3. ID_DISTRITO - Número del distrito electoral de la entidad.
+	
+	4. DISTRITO - Nombre del distrito electoral de la entidad.
+
+	5. SECCION - Número de sección correspondiente a la casilla.
+
+	6. ID_CASILLA - Número identificador de la casilla. 
+
+	7. TIPO_CASILLA - Tipo de casilla; B.- Básica, C.- Contigua, E.- Extraordinaria, S.- Especial
+
+	8. EXT_CONTIGUA - Número de casilla contigua a una extraordinaria.
+
+	9. UBICACION_CASILLA - Identifica el tipo de casilla y toma los siguientes valores:
+		1. Urbana
+		2. No Urbana
+
+	10. TIPO_ACTA - Especifica el tipo de Acta 
+		2.- Acta de casilla para Diputados de mayoría relativa
+		3.- Acta de casilla especial para Diputados de mayoría relativa
+		4.- Acta de casilla especial para Diputados de representación proporcional
+		
+	11. NUM_BOLETAS_SOBRANTES - Total de boletas sobrantes 
+	
+	12. TOTAL_CIUDADANOS_VOTARON - Total de ciudadanos que votaron
+	
+	13. NUM_BOLETAS_EXTRAIDAS - Total de boletas sacadas de la urna
+
+	14. PAN - Número de votos para el Partido Acción Nacional
+
+	15. PRI - Número de votos para el Partido Revolucionario Institucional
+
+	16. PRD - Número de votos para el Partido de la Revolución Democrática
+
+	17. PVEM - Número de votos para el Partido Verde Ecologista de México
+
+	18. PT - Número de votos para el Partido del Trabajo
+
+	19. MOVIMIENTO_CIUDADANO - Número de votos para Movimiento Ciudadano
+
+	20. NUEVA_ALIANZA - Número de votos para Nueva Alianza
+
+	21.	MORENA - Número de votos para Morena
+	
+	22.	PARTIDO_HUMANISTA - Número de votos para el Partido Humanista
+	
+	23.	ENCUENTRO_SOCIAL - Número de votos para Encuentro Social
+	
+	24.	PRI_PVEM - Número de votos para la coalición PRI-PVEM (cuando la coalición no existe en la entidad se indica con un guión “-”)
+	
+	25.	PRD_PT - Número de votos para la coalición PRD-PT (cuando la coalición no existe en la entidad se indica con un guión “-”)
+	
+	26.	CAND_IND_1 - Número de votos para el candidato independiente 1 (cuando el candidato independiente no existe en la entidad se indica con un guión “-”)
+	
+	27.	CAND_IND_2 - Número de votos para el candidato independiente 2 (cuando el candidato independiente no existe en la entidad se indica con un guión “-”)
+	
+	28.	CAND_IND_3 - Número de votos para el candidato independiente 3 (cuando el candidato independiente no existe en la entidad se indica con un guión “-”)
+	
+	29.	CAND_IND_4 - Número de votos para el candidato independiente 4 (cuando el candidato independiente no existe en la entidad se indica con un guión “-”)
+	
+	30.	CAND_IND_5 - Número de votos para el candidato independiente 5 (cuando el candidato independiente no existe en la entidad se indica con un guión “-”)
+
+	31. NO_REGISTRADOS - Número de votos para candidatos no registrados
+
+	32. NULOS - Número de votos nulos
+
+	33. TOTAL_VOTOS - Suma total de votos para la casilla (votos por partido, coalición, candidatos independientes, candidatos no registrados y nulos).
+		*****La suma se realiza automáticamente por el sistema del PREP con el fin de evitar errores de registro o aritméticos en las casillas.
+
+	34. LISTA_NOMINAL -  Número de votantes posibles de acuerdo a la lista nominal.
+
+	35. OBSERVACIONES - Indica con la leyenda:
+			Ilegible - La cantidad de votos es ilegible tanto en letra como en número en el Acta PREP -para partidos, coalición, candidato
+			independiente, candidatos no registrados o votos nulos- entonces cada ocurrencia del Acta PREP se captura como "Ilegible" y el dato se contabiliza
+			como cero. El Acta PREP se incluye dentro del grupo de actas contabilizadas.
+			Sin dato - La cantidad de votos no ha sido asentada en el Acta PREP -para partidos, coalición, candidato independiente, candidatos
+			no registrados o votos nulos- entonces cada ocurrencia del Acta PREP se captura como "Sin dato" y el dato se contabiliza como cero. El Acta PREP se
+			incluye dentro del grupo de actas contabilizadas.
+			Excede lista nominal - La suma de todos los votos en el Acta PREP excede el número de ciudadanos de la Lista Nominal de Electores de la casilla
+			electoral, incluido el número de representantes de partidos políticos y, en su caso, candidatos independientes acreditados –ambos ya sean locales
+			o federales-, motivo por lo cual los votos asentados no se contabilizan y el Acta PREP se incluye dentro del grupo de actas no contabilizadas.
+			Sin Acta (motivo) - Si el acta de escrutinio y cómputo no llegó junto con el paquete electoral al CATD respectivo por alguna de
+			los siguientes motivos:
+				1	Paquete no Entregado
+				2	Casilla no Instalada
+				3	Sin Sobre
+			No identificada - El Acta PREP contiene una omisión, ilegibilidad o error en alguno de los campos correspondientes a la identificación de
+			la casilla (entidad federativa, sección, distrito o tipo de casilla), en dicho supuesto se muestra al final del listado de actas y no se
+			contabiliza.
+			Identificación por otro medio - Actas cuyos datos de identificación no sea posible reconocer y sean incorporados mediante otros mecanismos,
+			en dicho supuesto los datos se contabilizan.
+
+	36. CONTABILIZADA
+			-Obtiene el valor "1" cuando el acta es contabilizada
+			-Obtiene el valor "0" cuando el acta no es contabilizada. Si el acta no se contabiliza, se señala la razón en el campo de Observaciones.
+
+	37. CRYT - Indica si el acta capturada proviene de un Centro de Recepción y Traslado (CRyT). 
+		Dichos CRyT se implementan en aquellos distritos en los que las condiciones geográficas, de infraestructura, 
+		sociopolíticas y/o meteorológicas dificultan significativamente el traslado directo a la Junta Distrital en tiempo y forma. 
+		Dichos centros concentran los paquetes electorales y los trasladan a las Juntas Distritales Ejecutivas. 
+		Los valores que puede tomar con Fijo (F) e Itinerante (I). 
+		
+	38. SHA - Identificador asociado al archivo del acta digitalizada generado a través de la función criptográfica hash denominada SHA256.
+		Dicho identificador representa de manera única a cada imagen. Bajo esa función hash, cualquier modificación a dicho archivo -en este caso,
+		a la imagen del acta digitalizada- modifica también el identificador, asignando una cadena de caracteres completamente distinta a la original.
+
+		Para validar la autenticidad del acta digitalizada, se requiere de un software que permita obtener el código de integridad conforme al estándar SHA-256. 
+		
+		Para efectos de ejemplo, en los siguientes pasos se hace uso al software "md5deep-4.4" (software de código abierto accesible desde internet y que no tiene costo) para realizar la validación
+		de la autenticidad del acta digitalizada. Se considera el uso de un sistema de 64 bits con sistema operativo Microsft Windows.
+
+		1. Descargar el archivo "md5deep-4.4" ingresando en un navegador web la siguiente URL:
+
+			https://github.com/jessek/hashdeep/releases/download/release-4.4/md5deep-4.4.zip
+			(Fecha de acceso a la URL: Mayo de 2015.)
+			
+		2. Ingresar al directorio donde se descargó el archivo.
+
+		3. Descomprimir el archivo "md5deep-4.4.zip".
+
+		4. Abrir una ventana para ingresar comandos (<Ctrl> + <R> e ingresar la cadena "cmd" seguida de la tecla "enter").
+
+		5. Navegar en la terminal hasta el directorio descomprimido.
+
+			C:> cd Downloads
+			C:\Downloads> cd md5deep-4.4
+			C:\Downloads\md5deep-4.4>
+
+		6. Ejecutar el archivo "sha256deep64.exe" pasando como parámetro el nombre del documento al cual se desea calcular el código de integridad. 
+		 
+			C:\Downloads\md5deep-4.4>sha256deep64.exe Acta.jpg 
+			4df3c3f68fcc83b27e9d42c90431a72499f17875c81a599b566c9889b9696703  C:\Downloads\EjemploActa.jpg
+   
+		7. Comparar el código obtenido mediante este procedimiento contra el campo "SHA" que se muestra en la Base de Datos.
+
+		   NOTA: Al momento de la realizar la verificación no es relevante que los caracteres sean mayúsculas o minúsculas, la única condición es que coincidan.
+		
+	39. HORA_ACOPIO - Fecha y hora del CENTRO de México de recepción del sobre PREP con la copia del acta de escrutinio en el CATD.
+		
+	40. HORA_CAPTURA - Fecha y hora de captura del acta en el CATD, la hora corresponde al tiempo del centro de México.
+
+	41. HORA_REGISTRO - Fecha y hora de registro del acta en la base de datos, la hora corresponde al tiempo del centro de México.
+	
