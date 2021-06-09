@@ -53,7 +53,7 @@ datos %>%
   annotate(geom = "text", x = as_datetime("2021-06-07 02:00:00"), y = 0.95, label = "Día posterior\na la elección", fontface = "bold", color = "grey50", hjust = 0.5, size = 7, family = "Trebuchet MS Bold") +
   annotate(geom = "text", x = as_datetime("2021-06-07 07:00:00"), y = 0.92, label = "2006", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
   annotate(geom = "text", x = as_datetime("2021-06-06 23:00:00"), y = 0.65, label = "2009", fontface = "bold", color = "white", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
-  annotate(geom = "text", x = as_datetime("2021-06-07 20:35:00"), y = 0.97, label = "2012", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
+  annotate(geom = "text", x = as_datetime("2021-06-07 20:35:00"), y = 0.99, label = "2012", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
   annotate(geom = "text", x = as_datetime("2021-06-07 20:35:00"), y = 0.91, label = "2015", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
   annotate(geom = "text", x = as_datetime("2021-06-07 20:35:00"), y = 0.75, label = "2018", fontface = "bold", color = "grey60", hjust = 0.5, size = 6, family = "Trebuchet MS Bold") +
   annotate(geom = "text", x = as_datetime("2021-06-07 04:30:00"), y = 0.81, label = "2021", fontface = "bold", color = "#f07167", hjust = 0.5, size = 8, family = "Trebuchet MS Bold") +
