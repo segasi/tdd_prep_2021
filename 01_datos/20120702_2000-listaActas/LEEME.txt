@@ -1,0 +1,165 @@
+					Programa de Resultados Electorales Preliminares 2012					
+					____________________________________________________					
+										
+										
+A. El Programa de Resultados Preliminares permite la descarga de la base de datos a través de un  archivo tar.gz que contienen achivos en texto plano.										
+										
+B. Los archivos de texto plano contienen todas las actas de base de datos y se nombran como: presidente.txt, diputados.txt y senadores.txt 										
+   acorde al tipo de elección.										
+										
+C. La información en el archivo de texto plano se divide en dos secciones:										
+										
+   a. Primera sección, encabezado: 										
+										
+     i.	Se presenta la hora y la fecha de la generación de reportes, esta corresponde al que aparece en los reportes HTML, ejemplo:								
+        20:00 horas (UTC-5)										
+        Domingo 1 de julio de 2012										
+										
+     ii.Muestra los nombres de los datos del acta que se están incluyendo, separados por pipes “|”, ejemplo:										
+										
+      ACTAS_CAPTURADAS|ACTAS_POR_CAPTURAR|PORCENTAJE_ACTAS_CAPTURADAS|ACTAS_CONTABILIZADAS|ACTAS_NO_CONTABILIZADAS|PARTICIPACION_CIUDADANA										
+										
+        La descripción de cada campo se muestra a continuación:										
+										
+        1. ACTAS_CAPTURADAS - Número de actas capturadas, que están dentro del catálogo de actas y que son publicadas al momento de la generación del archivo.										
+										
+	2. ACTAS_POR_CAPTURAR - Total de actas del catálogo de actas, menos las actas capturadas.									
+										
+	3. PORCENTAJE_ACTAS_CAPTURADAS - Porcentaje de actas procesadas (capturadas) al momento de la generación del archivo.									
+										
+	4. ACTAS_CONTABILIZADAS - Total de actas identificadas como contabilizadas  y que están dentro del universo de las actas capturadas.									
+										
+	5. ACTAS_NO_CONTABILIZADAS - Total de actas identificadas como NO contabilizadas y que están dentro del universo de las actas capturadas.									
+										
+	6. PARTICIPACION_CIUDADANA - Porcentaje de la participación ciudadana.									
+										
+										
+   b.  Segunda sección, datos del acta. Corresponde a los datos del acta extraídos de la base de datos, cada línea corresponde a una acta, "										
+	están separados por pipes “|”. Los datos son los siguientes:									
+										
+      ESTADO|DISTRITO|SECCION|ID_CASILLA|TIPO_CASILLA|EXT_CONTIGUA|UBICACION_CASILLA|TIPO_ACTA|PAN|PRI|PRD|PVEM|PT|MC|PANAL|C_PRI_PVEM|C_PRD_PT_MC|C_PRD_PT|C_PRD_MC|C_PT_MC|NO_REGISTRADOS|NULOS|TOTAL_VOTOS|LISTA_NOMINAL|OBSERVACIONES|CONTABILIZADA|CRYT|HORA_ACOPIO|HORA_CAPTURA|HORA_REGISTRO										
+										
+										
+	1. ESTADO - Número de la Entidad Federativa. De acuerdo al siguiente catálogo:									
+		1.Aguascalientes								
+		2.Baja California								
+		3.Baja California Sur								
+		4.Campeche								
+		5.Coahuila								
+		6.Colima								
+		7.Chiapas								
+		8.Chihuahua								
+ 		9.Distrito Federal								
+	 	10.Durango								
+		11.Guanajuato								
+		12.Guerrero								
+		13.Hidalgo								
+		14.Jalisco								
+		15.México								
+		16.Michoacán								
+		17.Morelos								
+		18.Nayarit								
+		19.Nuevo León								
+		20.Oaxaca								
+		21.Puebla								
+		22.Querétaro								
+		23.Quintana Roo								
+		24.San Luis Potosí								
+		25.Sinaloa								
+		26.Sonora								
+		27.Tabasco								
+		28.Tamaulipas								
+		29.Tlaxcala								
+		30.Veracruz								
+		31.Yucatán								
+		32.Zacatecas								
+										
+	2. DISTRITO - Número del distrito electoral de la entidad.									
+										
+	3. SECCION - Número de sección correspondiente a la casilla.									
+										
+	4. ID_CASILLA - Número identificador de la casilla. 									
+										
+	5. TIPO_CASILLA - Tipo de casilla; B.- Básica, C.- Contigua, E.- Extraordinaria, S.- Especial									
+										
+	6. EXT_CONTIGUA - Número de casilla contigua a una extraordinaria.									
+										
+	7. UBICACION_CASILLA - Identifica el tipo de casilla y toma los siguientes valores:									
+			    1. Urbana							
+			    2. No Urbana							
+										
+	8. TIPO_ACTA - Especifica el tipo de Acta 									
+			2.- Acta de casilla para Presidente de la República							
+			3.- Acta de casilla para Senadores de mayoría relativa							
+			4.- Acta de casilla especial para Senadores de mayoría relativa							
+			5.- Acta de casilla especial para Senadores de representación proporcional							
+			6.- Acta de casilla para Diputados de mayoría relativa							
+			7.- Acta de casilla especial para Diputados de mayoría relativa							
+			8.- Acta de casilla especial para Diputados de representación proporcional							
+										
+	9. PAN - Número de votos para el Partido Acción Nacional									
+										
+	10. PRI - Número de votos para el Partido Revolucionario Institucional									
+										
+	11. PRD - Número de votos para el Partido de la Revolución Democrática									
+										
+	12. PVEM - Número de votos para el Partido Verde Ecologista de México									
+										
+	13. PT - Número de votos para el Partido del Trabajo									
+										
+	14. MC - Número de votos para Movimiento Ciudadano									
+										
+	15. PANAL - Número de votos para Nueva Alianza									
+										
+	16. C_PRI_PVEM - Número de votos para la coalición PRI-PVEM									
+										
+	17. C_PRD_PT_MC - Número de votos para la coalición PRD-PT-MC									
+										
+	18. C_PRD_PT - Número de votos para la coalición PRD-PT									
+										
+	19. C_PRD_MC - Número de votos para la coalición PRD-MC									
+										
+	20. C_PT_MC - Número de votos para la coalición PT-MC									
+										
+	21. NO_REGISTRADOS - Número de votos para candidatos no registrados									
+										
+	22. NULOS - Número de votos nulos									
+										
+	"23. TOTAL_VOTOS - Suma total de votos para la casilla (votos por partido, coalición, candidatos no registrados y nulos).									
+			*****La suma se realiza automáticamente por el sistema del PREP con el fin de evitar errores de registro							
+			o aritméticos en las casillas.							
+										
+	24. LISTA_NOMINAL -  Número de votantes posibles de acuerdo a la lista nominal									
+										
+	25. OBSERVACIONES - Indica con la leyenda:									
+			“Excede lista nominal” si la suma total de votos excede el número de votantes permitidos para la casilla.							
+			“Sin Acta” si el acta de escrutinio y cómputo no llegó junto con el paquete electoral al CEDAT respectivo.							
+			“No identificada” si el acta contiene alguna omisión, error o ilegibilidad que impide identificarla dentro 							
+			del catálogo de casillas aprobadas.							
+										
+	26. CONTABILIZADA - Obtiene el valor "1" cuando el acta es contabilizada"									
+			Obtiene el valor "0" cuando el acta no es contabilizada. Si el acta no se 		
+			contabiliza, se señala la razón en el campo de Observaciones.							
+										
+	27. CRYT - Indica si el acta capturada proviene de un Centro de Recepción y Traslado (CRyT) 									
+		Dichos CRyT se implementan en aquellos distritos en los que las condiciones geográficas, de infraestructura, 								
+		sociopolíticas y/o meteorológicas dificultan significativamente el traslado directo a la Junta Distrital en tiempo y forma. 								
+		Dichos centros concentran los paquetes electorales y los trasladan a las Juntas Distritales Ejecutivas. 								
+		Los valores que puede tomar con Fijo (F) e Itinerante (I). 								
+										
+	28. HORA_ACOPIO - Fecha y hora LOCAL de recepción del sobre PREP con la copia del acta de escrutinio en el CEDAT.									
+			Las entidades con huso horario diferente a la hora del centro son las siguientes:							
+										
+		Entidad Federativa	Número de entidad	Uso horario	Diferencia en horas					
+										
+		Baja California			2		PACÍFICO		-02:00	
+		Baja California Sur		3		NOROESTE 		-01:00		
+		Chihuahua			8		NOROESTE		-01:00	
+		Nayarit				18		NOROESTE		-01:00
+		Sinaloa				25		NOROESTE		-01:00
+		Sonora				26		PACÍFICO		-02:00
+										
+										
+	29. HORA_CAPTURA - Fecha y hora de captura del acta en el CEDAT. La hora corresponde al tiempo del centro de México									
+										
+	30. HORA_REGISTRO - Fecha y hora de registro del acta en la base de datos. La hora corresponde al tiempo del centro de México									
