@@ -32,7 +32,7 @@ nota_acopio <- "\nElaborada por @segasi / Fuente: INE, PREP 2021\nNota: La gráf
 
 nota_acopio_digi <- "\nElaborada por @segasi / Fuente: INE, PREP 2021\nNota: La gráfica excluye 90 actas cuya fecha de acopio es previa a las 17:00 hrs. del 6 de junio o posterior a las 20:00 hrs. del 7 de junio. Excluye también 4,629 actas que\nno fueron acopiadas y 96 que fueron digitalizadas mediante urna electrónica."
 
-## Evolución del número y número acumulado de actas acopiadas por minuto ----
+## Evolución del número y número acumulado de actas acopiadas ----
 bd_prep_2021_aco %>%
   count(fecha_hora_acopio, 
         name = "Número") %>% 
@@ -52,7 +52,7 @@ bd_prep_2021_aco %>%
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
   facet_wrap(~ name, scales = "free_y") +
-  labs(title = "PREP 2021 | Evolución del número y número acumulado de actas acopiadas por minuto",
+  labs(title = "PREP 2021 | Evolución del número y número acumulado de actas acopiadas",
        x = "\nFecha y hora de acopio",
        y = NULL,
        caption = nota_acopio) +
@@ -66,11 +66,11 @@ bd_prep_2021_aco %>%
         panel.border = element_rect(color = "grey80", 
                                     size = 0.5, 
                                     fill = "transparent")) +
-  ggsave("03_graficas/evolucion/acopio/evolucion_numero_y_numero_acumulado_actas_acopiadas_por_minuto.png", width = 16, height = 9, dpi = 200)
+  ggsave("03_graficas/evolucion/acopio/evolucion_numero_y_numero_acumulado_actas_acopiadas.png", width = 16, height = 9, dpi = 200)
   
 
 
-## Evolución del número y número acumulado de actas acopiadas por minuto y medio de digitalización ----
+## Evolución del número y número acumulado de actas acopiadas por medio de digitalización ----
 bd_prep_2021_aco %>%
   filter(digitalizacion != "Urna Electrónica") %>%
   group_by(digitalizacion, fecha_hora_acopio) %>% 
@@ -101,7 +101,7 @@ bd_prep_2021_aco %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del número y número acumulado de actas acopiadas por minuto y\nmedio de digitalización",
+  labs(title = "PREP 2021 | Evolución del número y número acumulado de actas acopiadas por medio\nde digitalización",
        x = "\nFecha y hora de acopio",
        y = NULL,
        color = "Medio de digitalización",
@@ -115,7 +115,7 @@ bd_prep_2021_aco %>%
   ggsave("03_graficas/evolucion/acopio/evolucion_numero_acumulado_actas_acopiadas_dado_medio_digitalizacion.png", width = 16, height = 9, dpi = 200)
 
 
-## Evolución del porcentaje acumulado de actas acopiadas por minuto, dado el número de elecciones que debían ser computadas en la casilla ----
+## Evolución del porcentaje acumulado de actas acopiadas, dado el número de elecciones que debían ser computadas en la casilla ----
 bd_prep_2021_aco %>% 
   arrange(num_act, fecha_hora_acopio) %>% 
   group_by(num_act) %>% 
@@ -137,7 +137,7 @@ bd_prep_2021_aco %>%
   scale_color_manual(values = paleta_4,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas acopiadas por minuto, dado el\nnúmero de elecciones que debían ser computadas en la casilla",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas acopiadas, dado el número de\nelecciones que debían ser computadas en la casilla",
        x = "\nFecha y hora de acopio",
        y = NULL,
        color = "\nNúmero de elecciones\ncomputadas en casilla",
@@ -151,7 +151,7 @@ bd_prep_2021_aco %>%
   ggsave("03_graficas/evolucion/acopio/evolucion_porcentaje_acumulado_actas_acopiadas_dado_numero_de_elecciones_en_casilla.png", width = 16, height = 9, dpi = 200)
 
 
-## Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas acopiadas por minuto ----
+## Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas acopiadas ----
 bd_prep_2021_aco %>% 
   arrange(ubicacion_casilla, fecha_hora_acopio) %>%
   group_by(ubicacion_casilla) %>% 
@@ -172,7 +172,7 @@ bd_prep_2021_aco %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas\nacopiadas por minuto",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas\nacopiadas",
        x = "\nFecha y hora de acopio",
        y = NULL,
        color = "\nTipo de casilla",
@@ -185,7 +185,7 @@ bd_prep_2021_aco %>%
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   ggsave("03_graficas/evolucion/acopio/evolucion_porcentaje_acumulado_actas_acopiadas_dada_ubicacion_casilla.png", width = 16.5, height = 9, dpi = 200)
 
-## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas acopiadas por minuto, dado el medio de digitalización del acta ----
+## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas acopiadas, dado el medio de digitalización del acta ----
 foo <- 
   bd_prep_2021_aco %>%
   filter(digitalizacion != "Urna Electrónica") %>% 
@@ -226,7 +226,7 @@ foo %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\nacopiadas por minuto, dado el medio de digitalización",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\nacopiadas, dado el medio de digitalización",
        x = "\nFecha y hora de acopio",
        y = NULL,
        color = "\nMedio de digitalización",
@@ -247,7 +247,7 @@ foo %>%
   ggsave("03_graficas/evolucion/acopio/evolucion_porcentaje_acumulado_actas_acopiadas_dado_numero_de_elecciones_en_casilla_y_medio_digitalizacion.png", width = 16.5, height = 9, dpi = 200)
 
 
-## Evolución del número acumulado de actas de casillas urbanas y no urbanas acopiadas por minuto, dado el medio de digitalización del acta ----
+## Evolución del número acumulado de actas de casillas urbanas y no urbanas acopiadas, dado el medio de digitalización del acta ----
 foo %>% 
   ggplot(aes(x = fecha_hora_acopio, 
              y = acumuladas, 
@@ -264,7 +264,7 @@ foo %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del número acumulado de actas de casillas urbanas y no urbanas\nacopiadas por minuto, dado el medio de digitalización",
+  labs(title = "PREP 2021 | Evolución del número acumulado de actas de casillas urbanas y no urbanas\nacopiadas, dado el medio de digitalización",
        x = "\nFecha y hora de acopio",
        y = NULL,
        color = "\nMedio de digitalización",
@@ -285,7 +285,7 @@ foo %>%
   ggsave("03_graficas/evolucion/acopio/evolucion_numero_acumulado_actas_acopiadas_dado_numero_de_elecciones_en_casilla_y_medio_digitalizacion.png", width = 16.5, height = 9, dpi = 200)
 
 
-## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas acopiadas por minuto, dado el número de elecciones que debían ser computadas en la casilla ----
+## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas acopiadas, dado el número de elecciones que debían ser computadas en la casilla ----
 bd_prep_2021_aco %>%
   arrange(num_act, ubicacion_casilla, fecha_hora_acopio) %>%
   group_by(num_act, ubicacion_casilla) %>% 
@@ -310,7 +310,7 @@ bd_prep_2021_aco %>%
   scale_color_manual(values = paleta_4,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\nacopiadas por minuto, dado el número de elecciones que debían ser computadas en la casilla",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\nacopiadas, dado el número de elecciones que debían ser computadas en la casilla",
        x = "\nFecha y hora de acopio",
        y = NULL,
        color = "\nNúmero de elecciones\ncomputadas en casilla",
@@ -332,11 +332,7 @@ bd_prep_2021_aco %>%
 
 
 
-
-
-
-
-## Evolución del porcentaje acumulado de actas de casillas acopiadas por minuto,dado el método de digitalizaión y el número de elecciones computadas en la casilla ----
+## Evolución del porcentaje acumulado de actas de casillas acopiadas, dado el método de digitalizaión y el número de elecciones computadas en la casilla ----
 faa <- 
   bd_prep_2021_aco %>%
   filter(digitalizacion != "Urna Electrónica") %>%
@@ -382,7 +378,7 @@ faa %>%
   scale_color_manual(values = paleta_4,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas acopiadas por minuto,\ndado el método de digitalizaión y el número de elecciones computadas en la casilla",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas acopiadas, dado el\nmétodo de digitalizaión y el número de elecciones computadas en la casilla",
        x = "\nFecha y hora de acopio",
        y = NULL,
        color = "\nNúmero de elecciones\ncomputadas en casilla",
@@ -419,7 +415,7 @@ faa %>%
 bd_prep_2021 %>%
   summarise(valor_faltante = sum(is.na(fecha_hora_captura)))
 
-# En total excluiré 4,629 rengloes; todos tienen valores faltantes.
+# En total excluiré 4,629 renglones; todos tienen valores faltantes.
 
 bd_prep_2021_cap <- 
   bd_prep_2021 %>%
@@ -434,7 +430,7 @@ nota_cap <- "\nElaborada por @segasi / Fuente: INE, PREP 2021\nNota: La gráfica
 
 nota_cap_digi <- "\nElaborada por @segasi / Fuente: INE, PREP 2021\nNota:La gráfica excluye 4,629 actas que no fueron capturadas y 96 que fueron digitalizadas mediante urna electrónica."
 
-## Evolución del número y número acumulado de actas capturadas por minuto ----
+## Evolución del número y número acumulado de actas capturadas  ----
 bd_prep_2021_cap %>%
   count(fecha_hora_captura, 
         name = "Número") %>% 
@@ -454,7 +450,7 @@ bd_prep_2021_cap %>%
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
   facet_wrap(~ name, scales = "free_y") +
-  labs(title = "PREP 2021 | Evolución del número y número acumulado de actas capturadas por minuto",
+  labs(title = "PREP 2021 | Evolución del número y número acumulado de actas capturadas",
        x = "\nFecha y hora de captura",
        y = NULL,
        caption = nota_cap) +
@@ -468,11 +464,11 @@ bd_prep_2021_cap %>%
         panel.border = element_rect(color = "grey80", 
                                     size = 0.5, 
                                     fill = "transparent")) +
-  ggsave("03_graficas/evolucion/captura/evolucion_numero_y_numero_acumulado_actas_capturadas_por_minuto.png", width = 16, height = 9, dpi = 200)
+  ggsave("03_graficas/evolucion/captura/evolucion_numero_y_numero_acumulado_actas_capturadas.png", width = 16, height = 9, dpi = 200)
 
 
 
-## Evolución del número y número acumulado de actas capturadas por minuto y medio de digitalización ----
+## Evolución del número y número acumulado de actas capturadas por medio de digitalización ----
 bd_prep_2021_cap %>%
   filter(digitalizacion != "Urna Electrónica") %>%
   group_by(digitalizacion, fecha_hora_captura) %>% 
@@ -502,7 +498,7 @@ bd_prep_2021_cap %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del número acumulado de actas capturadas por minuto y medio\nde digitalización",
+  labs(title = "PREP 2021 | Evolución del número acumulado de actas capturadas por medio de\ndigitalización",
        x = "\nFecha y hora de captura",
        y = NULL,
        color = "Medio de digitalización",
@@ -516,7 +512,7 @@ bd_prep_2021_cap %>%
   ggsave("03_graficas/evolucion/captura/evolucion_numero_acumulado_actas_capturadas_dado_medio_digitalizacion.png", width = 16, height = 9, dpi = 200)
 
 
-## Evolución del porcentaje acumulado de actas capturadas por minuto, dado el número de elecciones que debían ser computadas en la casilla ----
+## Evolución del porcentaje acumulado de actas capturadas dado el número de elecciones que debían ser computadas en la casilla ----
 bd_prep_2021_cap %>% 
   arrange(num_act, fecha_hora_captura) %>% 
   group_by(num_act) %>% 
@@ -538,7 +534,7 @@ bd_prep_2021_cap %>%
   scale_color_manual(values = paleta_4,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas capturadas por minuto, dado el\nnúmero de elecciones que debían ser computadas en la casilla",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas capturadas, dado el número de\nelecciones que debían ser computadas en la casilla",
        x = "\nFecha y hora de captura",
        y = NULL,
        color = "\nNúmero de elecciones\ncomputadas en casilla",
@@ -552,7 +548,7 @@ bd_prep_2021_cap %>%
   ggsave("03_graficas/evolucion/captura/evolucion_porcentaje_acumulado_actas_capturadas_dado_numero_de_elecciones_en_casilla.png", width = 16, height = 9, dpi = 200)
 
 
-## Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas capturadas por minuto ----
+## Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas capturadas ----
 bd_prep_2021_cap %>% 
   arrange(ubicacion_casilla, fecha_hora_captura) %>%
   group_by(ubicacion_casilla) %>% 
@@ -573,7 +569,7 @@ bd_prep_2021_cap %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas\ncapturadas por minuto",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y y no urbanas\ncapturadas",
        x = "\nFecha y hora de captura",
        y = NULL,
        color = "\nTipo de casilla",
@@ -586,7 +582,7 @@ bd_prep_2021_cap %>%
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   ggsave("03_graficas/evolucion/captura/evolucion_porcentaje_acumulado_actas_capturadas_dada_ubicacion_casilla.png", width = 16.5, height = 9, dpi = 200)
 
-## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas capturadas por minuto, dado el medio de digitalización del acta ----
+## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas capturadas, dado el medio de digitalización del acta ----
 foo <- 
   bd_prep_2021_cap %>%
   filter(digitalizacion != "Urna Electrónica") %>% 
@@ -626,7 +622,7 @@ foo %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\ncapturadas por minuto, dado el medio de digitalización",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\ncapturadas, dado el medio de digitalización",
        x = "\nFecha y hora de captura",
        y = NULL,
        color = "\nMedio de digitalización",
@@ -647,7 +643,7 @@ foo %>%
   ggsave("03_graficas/evolucion/captura/evolucion_porcentaje_acumulado_actas_capturadas_dado_numero_de_elecciones_en_casilla_y_medio_digitalizacion.png", width = 16.5, height = 9, dpi = 200)
 
 
-## Evolución del número acumulado de actas de casillas urbanas y no urbanas capturadas por minuto, dado el medio de digitalización del acta ----
+## Evolución del número acumulado de actas de casillas urbanas y no urbanas capturadas, dado el medio de digitalización del acta ----
 foo %>% 
   ggplot(aes(x = fecha_hora_captura, 
              y = acumuladas, 
@@ -664,7 +660,7 @@ foo %>%
   scale_color_manual(values = paleta_2,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del número acumulado de actas de casillas urbanas y no urbanas\ncapturadas por minuto, dado el medio de digitalización",
+  labs(title = "PREP 2021 | Evolución del número acumulado de actas de casillas urbanas y no urbanas\ncapturadas, dado el medio de digitalización",
        x = "\nFecha y hora de captura",
        y = NULL,
        color = "\nMedio de digitalización",
@@ -685,7 +681,7 @@ foo %>%
   ggsave("03_graficas/evolucion/captura/evolucion_numero_acumulado_actas_capturadas_dado_numero_de_elecciones_en_casilla_y_medio_digitalizacion.png", width = 16.5, height = 9, dpi = 200)
 
 
-## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas capturadas por minuto, dado el número de elecciones que debían ser computadas en la casilla ----
+## Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas capturadas, dado el número de elecciones que debían ser computadas en la casilla ----
 bd_prep_2021_cap %>%
   arrange(num_act, ubicacion_casilla, fecha_hora_captura) %>%
   group_by(num_act, ubicacion_casilla) %>% 
@@ -709,7 +705,7 @@ bd_prep_2021_cap %>%
   scale_color_manual(values = paleta_4,
                      guide = guide_legend(title.position = "top",
                                           keyheight = 0.4)) +
-  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\ncapturadas por minuto, dado el número de elecciones que debían ser computadas en la casilla",
+  labs(title = "PREP 2021 | Evolución del porcentaje acumulado de actas de casillas urbanas y no urbanas\ncapturadas, dado el número de elecciones que debían ser computadas en la casilla",
        x = "\nFecha y hora de captura",
        y = NULL,
        color = "\nNúmero de elecciones\ncomputadas en casilla",
